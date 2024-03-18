@@ -1,36 +1,152 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>Smart Weather Info</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <style>
-        body {
-            background: url(images/bg-image.jpg) no-repeat;
-            background-size: cover;
-            height: 100vh;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Font Awesome -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css"
+rel="stylesheet"
+/>
+<!-- MDB -->
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"
+></script>
+    <script defer src="index.js"></script>
+    <link rel="stylesheet" href="index.css">
 </head>
-
 <body>
-    <div class="container">
-        <form class="col-md-6 m-auto py-5">
-            <div class="input-group mb-3">
-                <input id="input-value" type="text" class="form-control" placeholder="Enter a location for Weather ...">
-                <div class="input-group-append">
-                    <button onclick="loadTemparatureData()" type="button" class="btn btn-danger">Search</button>
-                </div>
-            </div>
-        </form>
-        <div id="weather-status" class="weather-status text-white text-center"></div>
-    </div>
-    <script src="api.js"></script>
-</body>
 
+
+    <form action="submit">
+        <input type="text" placeholder="Enter the city name">
+        <input type="submit">
+    </form>
+    <h1>weather-status</h1>
+    <section class="vh-90" id="sec">
+        <div class="container py-5">
+      
+          <div class="row d-flex justify-content-center align-items-center" >
+            <div class="col-md-9 col-lg-7 col-xl-5" id="main">
+      
+              <div id="wrapper-bg" class="card text-white bg-image shadow-4-strong"
+                style="background-image: url('img/clouds.gif')">
+                <!-- Main current data -->
+                <div class="card-header p-4 border-0">
+                  <div class="text-center mb-3">
+                    <p class="h2 mb-1" id="wrapper-name"></p>
+                    <p class="mb-1" id="wrapper-description"></p>
+                    <p class="display-1 mb-1" id="wrapper-temp"></p>
+                    <span class="">Pressure: <span id="wrapper-pressure"></span></span>
+                    <span class="mx-2">|</span>
+                    <span class="">Humidity: <span id="wrapper-humidity"></span></span>
+                  </div>
+                </div>
+      
+                <!-- Hourly forecast -->
+                <div class="card-body p-4 border-top border-bottom mb-2">
+                  <div class="row text-center">
+                    <div class="col-2">
+                      <strong class="d-block mb-2">Now</strong>
+                      <img id="wrapper-icon-hour-now" src="" class="" alt="" />
+                      <strong class="d-block" id="wrapper-hour-now"></strong>
+                    </div>
+      
+                    <div class="col-2">
+                      <strong class="d-block mb-2" id="wrapper-time1"></strong>
+                      <img id="wrapper-icon-hour1" src="" class="" alt="" />
+                      <strong class="d-block" id="wrapper-hour1"></strong>
+                    </div>
+      
+                    <div class="col-2">
+                      <strong class="d-block mb-2" id="wrapper-time2"></strong>
+                      <img id="wrapper-icon-hour2" src="" class="" alt="" />
+                      <strong class="d-block" id="wrapper-hour2"></strong>
+                    </div>
+      
+                    <div class="col-2">
+                      <strong class="d-block mb-2" id="wrapper-time3"></strong>
+                      <img id="wrapper-icon-hour3" src="" class="" alt="" />
+                      <strong class="d-block" id="wrapper-hour3"></strong>
+                    </div>
+      
+                    <div class="col-2">
+                      <strong class="d-block mb-2" id="wrapper-time4"></strong>
+                      <img id="wrapper-icon-hour4" src="" class="" alt="" />
+                      <strong class="d-block" id="wrapper-hour4"></strong>
+                    </div>
+      
+                    <div class="col-2">
+                      <strong class="d-block mb-2" id="wrapper-time5"></strong>
+                      <img id="wrapper-icon-hour5" src="" class="" alt="" />
+                      <strong class="d-block" id="wrapper-hour5"></strong>
+                    </div>
+                  </div>
+                </div>
+      
+                <!-- Daily forecast -->
+                <div class="card-body px-5">
+                  <div class="row align-items-center">
+                    <div class="col-lg-6">
+                      <strong>Today</strong>
+                    </div>
+      
+                    <div class="col-lg-2 text-center">
+                      <img id="wrapper-icon-today" src="" class="w-100" alt="" />
+                    </div>
+      
+                    <div class="col-lg-4 text-end">
+                      <span id="wrapper-forecast-temp-today"></span>
+                    </div>
+                  </div>
+      
+                  <div class="row align-items-center">
+                    <div class="col-lg-6">
+                      <strong>Tomorrow</strong>
+                    </div>
+      
+                    <div class="col-lg-2 text-center">
+                      <img id="wrapper-icon-tomorrow" src="" class="w-100" alt="" />
+                    </div>
+      
+                    <div class="col-lg-4 text-end">
+                      <span id="wrapper-forecast-temp-tomorrow">28</span>
+                    </div>
+                  </div>
+      
+                  <div class="row align-items-center">
+                    <div class="col-lg-6">
+                      <strong>Day after tomorrow</strong>
+                    </div>
+      
+                    <div class="col-lg-2 text-center">
+                      <img id="wrapper-icon-dAT" src="" class="w-100" alt="" />
+                    </div>
+      
+                    <div class="col-lg-4 text-end">
+                      <span id="wrapper-forecast-temp-dAT">28</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+            </div>
+          </div>
+      
+        </div>
+      </section>
+    
+</body>
 </html>

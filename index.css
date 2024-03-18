@@ -1,0 +1,47 @@
+
+form{
+    padding: 10px;
+    margin-left: 500px;
+  
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* background-color: teal; */
+    overflow:auto;
+  height: 100vh;
+  background-image: url("https://th.bing.com/th?id=OIP.eG-viIyV0CwjYdMPfB3UfwHaEc&w=322&h=193&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2");
+  background-repeat: no-repeat;
+  background-size: cover;
+ }
+ h1{
+    margin-left: 500px;
+    color: black;
+ }
+
+section{
+
+    /* width: 100%; */
+    
+
+}
+
+.vh-90{
+    /* width: 100%; */
+    /* height: 300px; */
+}
+
+#sec{
+    /* background-color: red; */
+    width: 100%;
+}
+
+#main{
+    /* background-color: blue; */
+    margin-top: -60px;
+    width:1000%;
+    height: 100vh;
+}
