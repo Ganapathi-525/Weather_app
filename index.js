@@ -1,7 +1,7 @@
 // API call
 
 let form = document.forms;
-
+let div=document.getElementById("wrapper-bg")
 form[0].addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -32,6 +32,7 @@ form[0].addEventListener("submit", (e) => {
                         alert(data.message);
                     } else {
                           console.log(data)
+                        div.style.visibility="visible";
                         let queryUrl = "https://api.openweathermap.org/data/2.5/onecall?";
                         let lat = `lat=${data.coord.lat}&`;
                         let lon = `lon=${data.coord.lon}&`;
